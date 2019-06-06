@@ -1,0 +1,42 @@
+<div>
+    <h3 style="display: inline-block">Welcome {{vm.user.firstname}} {{vm.user.lastname}}</h3>
+    <a href="#!/login" class="btn btn-default" style="display: inline-block; float: right; margin-top: 15px;">Log out</a>    
+</div>﻿
+<div>
+    <h3 style="display: inline-block">Albums:</h3>
+    <h4 style="display: inline-block; float: right;">Add a new album <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" style="font-size: 20px; top: 5px;pointer-events: all;cursor:grab" data-ng-click="vm.addAlbum()"></span> </h4>
+</div>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Album Name</th>
+            <th>Artist|Band</th> 
+            <th>Year</th>
+            <th>Condition</th>
+            <th>UPC</th>
+            <th>Notes</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="album in vm.userAlbums">
+            <td>{{ album.album_name }}</td>
+            <td>{{ album.artist }}</td>
+            <td>{{ album.album_year }}</td>
+            <td>{{ album.album_condition }}</td>
+            <td>{{ album.upc }}</td>
+            <td>{{ album.note }}</td>
+            <td>
+                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="font-size: 20px; color: red;pointer-events: all;cursor:grab;" data-ng-click="vm.openDeleteModal()"></span> 
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="font-size: 20px; color: green;pointer-events: all;cursor:grab;" data-ng-click="vm.editAlbum(album.album_id)"></span>
+            </td>            
+        </tr>
+    </table>
+</div>
+
+
+
+<ul>
+    <li ng-repeat="user in vm.allUsers">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a ng-click="vm.deleteUser(user.id)">Delete</a>
+    </li>
+</ul>
