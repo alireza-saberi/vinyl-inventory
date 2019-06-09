@@ -18,6 +18,7 @@
         vm.addAlbum = addAlbum;
         vm.openDeleteModal = openDeleteModal;
         vm.openEditModal = openEditModal;
+        vm.openAddModal = openAddModal;
 
         initController();
 
@@ -94,6 +95,26 @@
             var modalInstance = $uibModal.open({
                 templateUrl: "home/editmodal.html",
                 controller: "ModalEditCtrl",
+                controllerAs: 'vm',
+                size: '',
+                resolve: {
+                    items: function () {
+                        return true;
+                    }
+                }
+            });            
+
+            modalInstance.result.then(function (response) {
+                $scope.result = `${response} button hitted`;
+            });
+        }
+        
+        function openAddModal() {
+            console.log("Opening Edit modal ..");
+            
+            var modalInstance = $uibModal.open({
+                templateUrl: "home/addmodal.html",
+                controller: "ModalAddCtrl",
                 controllerAs: 'vm',
                 size: '',
                 resolve: {

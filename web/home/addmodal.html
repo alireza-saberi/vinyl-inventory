@@ -1,0 +1,59 @@
+<div>
+    <div class="modal-body">
+        <h4>Add new album</h4>
+        <hr>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputAlbum" class="col-sm-3 control-label" style="text-align: left">Album Name:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputAlbum" placeholder="Album Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputArtist" class="col-sm-3 control-label" style="text-align: left">Artist | Band:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputArtist" placeholder="Artist name">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputYear" class="col-sm-3 control-label" style="text-align: left">Year:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputYear" placeholder="Year">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Condition:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputCondition" placeholder="Condition">
+                </div>
+            </div>
+                        
+            <div class="form-group">
+                <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Note:</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" rows="3" id="inputCondition" placeholder="Note ..."></textarea>
+                </div>
+            </div>            
+            
+            <div class="form-group">
+                <label for="inputUPC" class="col-sm-3 control-label" style="text-align: left">UPC</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputUPC" placeholder="UPC">
+                </div>
+            </div> 
+            
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-default">Populate UPC</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" data-ng-click="vm.ok()">Save</button>
+        <button class="btn btn-warning" data-ng-click="vm.cancel()">Cancel</button>
+    </div>
+</div>
