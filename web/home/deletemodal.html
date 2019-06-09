@@ -1,10 +1,10 @@
-
-<form name="form.userForm" ng-submit="submitForm()" novalidate>
+<div>
     <div class="modal-body">
-        <p>Are you sure?</p>
+        <h3>Are you sure?</h3>
+
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" ng-disabled="form.userForm.$invalid">Yes</button>
-        <button class="btn btn-warning" ng-click="cancel()">No</button>
+        <button type="submit" class="btn btn-primary" data-ng-click="vm.ok()">Yes</button>
+        <button class="btn btn-warning" data-ng-click="vm.cancel()">No</button>
     </div>
-</form>
+</div>

@@ -17,7 +17,6 @@
         vm.editAlbum = editAlbum;
         vm.addAlbum = addAlbum;
         vm.openDeleteModal = openDeleteModal;
-        vm.ok = ok;
 
         initController();
 
@@ -74,16 +73,13 @@
             var modalInstance = $uibModal.open({
                 templateUrl: "home/deletemodal.html",
                 controller: "ModalContentCtrl",
+                controllerAs: 'vm',
                 size: '',
             });
 
             modalInstance.result.then(function (response) {
                 $scope.result = `${response} button hitted`;
             });
-        }
-
-        function ok(){
-            $uibModalInstance.close("Ok");
         }
     }
 

@@ -39,7 +39,7 @@
         }
 
         function Create(user) {
-            return $http.post('http://localhost:8080/VinylRecord/webresources/user/adduser', {first_name: user.firstName, last_name: user.lastName, username: user.username, user_password:user.password}).then(handleSuccess, handleError('Error creating user'));
+            return $http.post('http://localhost:8080/VinylRecord/webresources/user/adduser', {first_name: user.firstName, last_name: user.lastName, username: user.username, user_password: user.password}).then(handleSuccess, handleError('Error creating user'));
         }
 
         function Update(user) {

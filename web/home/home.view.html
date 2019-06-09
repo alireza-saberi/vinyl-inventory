@@ -18,12 +18,12 @@
             <th>Action</th>
         </tr>
         <tr ng-repeat="album in vm.userAlbums">
-            <td>{{ album.album_name }}</td>
-            <td>{{ album.artist }}</td>
-            <td>{{ album.album_year }}</td>
-            <td>{{ album.album_condition }}</td>
-            <td>{{ album.upc }}</td>
-            <td>{{ album.note }}</td>
+            <td>{{ album.album_name}}</td>
+            <td>{{ album.artist}}</td>
+            <td>{{ album.album_year}}</td>
+            <td>{{ album.album_condition}}</td>
+            <td>{{ album.upc}}</td>
+            <td>{{ album.note}}</td>
             <td>
                 <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="font-size: 20px; color: red;pointer-events: all;cursor:grab;" data-ng-click="vm.openDeleteModal()"></span> 
                 <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="font-size: 20px; color: green;pointer-events: all;cursor:grab;" data-ng-click="vm.editAlbum(album.album_id)"></span>
