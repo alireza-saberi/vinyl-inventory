@@ -3,10 +3,10 @@
 
     angular
             .module('app')
-            .controller('ModalDeleteCtrl', ModalDeleteCtrl);
+            .controller('ModalEditCtrl', ModalEditCtrl);
 
-    ModalDeleteCtrl.$inject = ['$uibModalInstance'];
-    function ModalDeleteCtrl($uibModalInstance) {
+    ModalEditCtrl.$inject = ['$uibModalInstance'];
+    function ModalEditCtrl($uibModalInstance) {
         var vm = this;
 
         vm.ok = ok;
@@ -15,7 +15,7 @@
         initController();
 
         function initController() {
-            console.log("ModalDeleteCtrl is opened ..");
+            console.log("ModalEditCtrl is opened ..");
         }
 
         function ok() {
