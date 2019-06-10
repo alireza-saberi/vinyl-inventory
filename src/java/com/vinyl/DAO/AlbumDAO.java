@@ -67,7 +67,6 @@ public class AlbumDAO {
             resultSet = preparedstatement.executeQuery();
 
             while (resultSet.next()) {
-                //System.out.println(myRs.getString("last_name") + ", " + myRs.getString("first_name"));
                 album = new Album();
                 album.setAlbum_id(Integer.parseInt(resultSet.getString("album_id")));
                 album.setAlbum_name(resultSet.getString("album_name"));
@@ -120,7 +119,7 @@ public class AlbumDAO {
     }
 
     // delete album for a specific user
-    public int deleteAlbum(Users user, Album album) {
+    public int deleteAlbum(Album album) {
         try {
             obj_DB_Connection = new DBConnector();
             connection = obj_DB_Connection.getConnection();
@@ -128,13 +127,14 @@ public class AlbumDAO {
             String query = "DELETE FROM album "
                     + "WHERE album_name=? AND artist=? AND album_year=? AND album_condition=? AND upc=? AND note=? AND username=?";
             preparedstatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            preparedstatement.setString(1, album.getAlbum_name());
+            preparedstatement.setString(1, album.getAlbum_name());          
             preparedstatement.setString(2, album.getArtist());
             preparedstatement.setString(3, Integer.toString(album.getAlbum_year()));
             preparedstatement.setString(4, album.getAlbum_condition());
             preparedstatement.setString(5, album.getUpc());
             preparedstatement.setString(6, album.getNote());
-            preparedstatement.setString(7, user.getUsername());
+            preparedstatement.setString(7, album.getUsername());
+
 
             rowsAffected = preparedstatement.executeUpdate();
             ResultSet generatedKeys = preparedstatement.getGeneratedKeys();

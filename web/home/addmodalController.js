@@ -9,18 +9,27 @@
     function ModalAddCtrl($uibModalInstance) {
         var vm = this;
 
-        vm.ok = ok;
+        vm.save = save;
         vm.cancel = cancel;
+        
+        vm.album = {
+            album_name: '',
+            artist: '',
+            album_year:'',
+            album_condition:'',
+            note:'',
+            upc: ''
+        };
 
         initController();
 
         function initController() {
-            console.log("ModalDeleteCtrl is opened ..");
+            console.log("ModalAddCtrl is opened ..");
         }
 
-        function ok() {
-            console.log("ok is clicked.");
-            $uibModalInstance.close("Ok");
+        function save() {
+            console.log("Save is clicked.");
+            $uibModalInstance.close(vm.album);
         }
 
         function cancel() {

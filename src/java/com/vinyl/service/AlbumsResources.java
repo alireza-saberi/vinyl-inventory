@@ -70,15 +70,17 @@ public class AlbumsResources {
         return db.updateAlbum(user, album);
     }
 
-    @DELETE
+    @POST
     @Path("/delalbum")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("text/plain")
-    public int deleteAlbum(UserAlbum userAlbum) {
-        Users user = userAlbum.getUser();
-        Album album = userAlbum.getAlbum();
+    public int deleteAlbum(Album album) {
+//        Users user = userAlbum.getUser();
+//        Album album = userAlbum.getAlbum();
+        System.out.println("deleting an album from the user");
+        System.out.println("" + album);
         AlbumDAO db = new AlbumDAO();
-        return db.deleteAlbum(user, album);
+        return db.deleteAlbum(album);
     }
 
     @DELETE

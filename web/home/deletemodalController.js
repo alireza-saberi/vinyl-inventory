@@ -5,27 +5,27 @@
             .module('app')
             .controller('ModalDeleteCtrl', ModalDeleteCtrl);
 
-    ModalDeleteCtrl.$inject = ['$uibModalInstance'];
-    function ModalDeleteCtrl($uibModalInstance) {
+    ModalDeleteCtrl.$inject = ['$uibModalInstance', 'delAlbum', 'UserService'];
+    function ModalDeleteCtrl($uibModalInstance, delAlbum, UserService) {
         var vm = this;
 
-        vm.ok = ok;
+        vm.deleteAlbum = deleteAlbum;
         vm.cancel = cancel;
+        vm.albumName = delAlbum.album_name;
 
         initController();
 
         function initController() {
-            console.log("ModalDeleteCtrl is opened ..");
-        }
-
-        function ok() {
-            console.log("ok is clicked.");
-            $uibModalInstance.close("Ok");
+            console.log("ModalDeleteCtrl is opened to delete %o...", delAlbum);
         }
 
         function cancel() {
-            console.log("cancel is clicked.");
             $uibModalInstance.dismiss();
+        }
+
+        function deleteAlbum() {
+            UserService.deleteUserAlbum(delAlbum);
+            $uibModalInstance.close("Ok");
         }
     }
 

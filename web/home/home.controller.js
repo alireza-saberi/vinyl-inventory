@@ -57,8 +57,8 @@
             console.log("deleting user ...");
         }
 
-        function deleteAlbum(album_id) {
-            console.log("Deleting an album from the user ...")
+        function deleteAlbum(album) {
+            console.log("Deleting an album from the user ...");
         }
 
         function editAlbum(album_id) {
@@ -69,8 +69,7 @@
             console.log("Adding a new album for the user ...");
         }
 
-        function openDeleteModal() {
-            console.log("Opening delete modal ..");
+        function openDeleteModal(album) {
 
             var modalInstance = $uibModal.open({
                 templateUrl: "home/deletemodal.html",
@@ -78,8 +77,8 @@
                 controllerAs: 'vm',
                 size: '',
                 resolve: {
-                    items: function () {
-                        return true;
+                    delAlbum: function () {
+                        return album;
                     }
                 }
             });
@@ -91,7 +90,7 @@
 
         function openEditModal() {
             console.log("Opening Edit modal ..");
-            
+
             var modalInstance = $uibModal.open({
                 templateUrl: "home/editmodal.html",
                 controller: "ModalEditCtrl",
@@ -102,29 +101,25 @@
                         return true;
                     }
                 }
-            });            
+            });
 
             modalInstance.result.then(function (response) {
                 $scope.result = `${response} button hitted`;
             });
         }
-        
+
         function openAddModal() {
-            console.log("Opening Edit modal ..");
-            
+            console.log("Opening Add modal ..");
+
             var modalInstance = $uibModal.open({
                 templateUrl: "home/addmodal.html",
                 controller: "ModalAddCtrl",
                 controllerAs: 'vm',
-                size: '',
-                resolve: {
-                    items: function () {
-                        return true;
-                    }
-                }
-            });            
+                size: ''
+            });
 
             modalInstance.result.then(function (response) {
+                console.log(response);
                 $scope.result = `${response} button hitted`;
             });
         }
