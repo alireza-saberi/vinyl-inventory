@@ -15,46 +15,35 @@
                     <input type="text" class="form-control" id="inputArtist" placeholder="Artist name" ng-model="vm.album.artist">
                 </div>
             </div>
-
+            
             <div class="form-group">
                 <label for="inputYear" class="col-sm-3 control-label" style="text-align: left">Year:</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" id="inputYear" placeholder="Year" ng-model="vm.album.album_year">
                 </div>
             </div>
-
+            
             <div class="form-group">
                 <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Condition:</label>
                 <div class="col-sm-9">
-<!--                    <input type="text" class="form-control" id="inputCondition" placeholder="Condition" ng-model="vm.album.album_condition">-->
-                    <select class="form-control" id="inputCondition" ng-model="vm.album.album_condition">
-                        <option value="" selected disabled hidden>Choose here</option>
-                        <option value="M">Mint (M)</option>
-                        <option value="NM">Near Mint (NM/ M-)</option>
-                        <option value="E">Excellent (E)</option>
-                        <option value="VG+">Very Good Plus (VG+)</option>
-                        <option value="VG">Very Good (VG)</option>
-                        <option value="G">Good (G)</option>
-                        <option value="P">Poor (P)</option>
-                        <option value="F">Fair (F)</option>
-                    </select>
+                    <input type="text" class="form-control" id="inputCondition" placeholder="Condition" ng-model="vm.album.album_condition">
                 </div>
             </div>
-
+                        
             <div class="form-group">
                 <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Note:</label>
                 <div class="col-sm-9">
                     <textarea class="form-control" rows="3" id="inputCondition" placeholder="Note ..." ng-model="vm.album.note"></textarea>
                 </div>
             </div>            
-
+            
             <div class="form-group">
                 <label for="inputUPC" class="col-sm-3 control-label" style="text-align: left">UPC</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" id="inputUPC" placeholder="UPC" ng-model="vm.album.upc">
                 </div>
             </div> 
-
+            
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
                     <button type="submit" class="btn btn-default">Populate UPC</button>

@@ -17,7 +17,6 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -41,11 +40,9 @@ public class AlbumsResources {
     @Path("/addalbum")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("text/plain")
-    public int addAlbum(UserAlbum userAlbum) {
-        Users user = userAlbum.getUser();
-        Album album = userAlbum.getAlbum();
+    public int addAlbum(Album album) {
         AlbumDAO db = new AlbumDAO();
-        return db.addAlbum(user, album);
+        return db.addAlbum(album);
     }
 
     @POST

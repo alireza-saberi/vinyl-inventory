@@ -22,7 +22,7 @@ public class AlbumDAO {
     int rowsAffected;
 
     // add album for a specific user
-    public int addAlbum(Users user, Album album) {
+    public int addAlbum(Album album) {
 
         try {
             obj_DB_Connection = new DBConnector();
@@ -37,7 +37,7 @@ public class AlbumDAO {
             preparedstatement.setString(4, album.getAlbum_condition());
             preparedstatement.setString(5, album.getUpc());
             preparedstatement.setString(6, album.getNote());
-            preparedstatement.setString(7, user.getUsername());
+            preparedstatement.setString(7, album.getUsername());
 
             rowsAffected = preparedstatement.executeUpdate();
 

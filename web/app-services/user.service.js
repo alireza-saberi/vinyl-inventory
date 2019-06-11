@@ -19,6 +19,7 @@
         
         service.deleteAlbum = deleteAlbum;
         service.editAlbum = editAlbum;
+        service.addAlbum = addAlbum;
 
         return service;
 
@@ -34,6 +35,10 @@
         
         function editAlbum(album){
             return $http.post('http://localhost:8080/VinylRecord/webresources/albums/updatalbum', album).then(handleSuccess, handleError('Error updating an album'));
+        }
+        
+        function addAlbum(album) {
+            return $http.post('http://localhost:8080/VinylRecord/webresources/albums/addalbum', album).then(handleSuccess, handleError('Error adding an album'));            
         }
 
         function GetAll() {
