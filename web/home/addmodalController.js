@@ -5,8 +5,8 @@
             .module('app')
             .controller('ModalAddCtrl', ModalAddCtrl);
 
-    ModalAddCtrl.$inject = ['$uibModalInstance', 'UserService', '$rootScope'];
-    function ModalAddCtrl($uibModalInstance, UserService, $rootScope) {
+    ModalAddCtrl.$inject = ['$uibModalInstance', 'UserService', '$rootScope', 'FlashService'];
+    function ModalAddCtrl($uibModalInstance, UserService, $rootScope, FlashService) {
         var vm = this;
 
         vm.save = save;
@@ -16,7 +16,7 @@
         vm.album = {
             album_name: '',
             artist: '',
-            album_year: '',
+            album_year: 0,
             album_condition: '',
             note: '',
             upc: '',
@@ -32,8 +32,17 @@
         function save() {
             console.log("Save is clicked.");
             console.log("Trying to save %o", vm.album);
-            UserService.addAlbum(vm.album);
-            $uibModalInstance.close("Yes");
+            if (isNaN(vm.album.album_year)) {
+                console.log("year should be a number");
+                FlashService.Error("Wrong credential ...");
+            } else if (vm.album.album_year === "") {
+                vm.album.album_year = 0;
+                UserService.addAlbum(vm.album);
+                $uibModalInstance.close("Yes");
+            } else{
+               UserService.addAlbum(vm.album);
+               $uibModalInstance.close("Yes"); 
+            }
         }
 
         function cancel() {

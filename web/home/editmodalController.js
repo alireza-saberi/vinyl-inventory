@@ -19,14 +19,21 @@
         }
 
         function save() {
-            console.log("Save is clicked.");
-            UserService.editAlbum(vm.album);
-            $uibModalInstance.close("Ok");
+            if (isNaN(vm.album.album_year)) {
+                console.log("year should be a number");
+            } else if (vm.album.album_year === "") {
+                vm.album.album_year = 0;
+                UserService.editAlbum(vm.album);
+                $uibModalInstance.close("Yes");
+            } else {
+                UserService.editAlbum(vm.album);
+                $uibModalInstance.close("Yes");
+            }
         }
 
         function cancel() {
             console.log("cancel is clicked.");
-            $uibModalInstance.dismiss();
+            $uibModalInstance.dismiss("No");
         }
     }
 
