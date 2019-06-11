@@ -1,12 +1,12 @@
 <div>
     <div class="modal-body">
-        <h4>Edit the album "{{ vm.album.album_name }}"</h4>
+        <h4>Edit the album "{{ vm.album.album_name}}"</h4>
         <hr>
         <form class="form-horizontal">
             <div class="form-group">
                 <label for="inputAlbum" class="col-sm-3 control-label" style="text-align: left">Album Name:</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputAlbum" placeholder="Album Name" ng-model="vm.album.album_name">
+                    <input type="text" class="form-control" id="inputAlbum" placeholder="Album Name" ng-model="vm.album.album_name" disabled>
                 </div>
             </div>
             <div class="form-group">
@@ -15,35 +15,44 @@
                     <input type="text" class="form-control" id="inputArtist" placeholder="Artist name" ng-model="vm.album.artist">
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="inputYear" class="col-sm-3 control-label" style="text-align: left">Year:</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" id="inputYear" placeholder="Year" ng-model="vm.album.album_year">
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Condition:</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputCondition" placeholder="Condition" ng-model="vm.album.album_condition">
+                    <select class="form-control" id="inputCondition" ng-model="vm.album.album_condition">
+                        <option value="1">Mint (M)</option>
+                        <option value="2">Near Mint (NM or M-)</option>
+                        <option value="3">Very Good Plus (VG+)</option>
+                        <option value="4">Very Good (VG)</option>
+                        <option value="5">Good (G)</option>
+                        <option value="6">Good Plus (G+)</option>
+                        <option value="7">Poor (P)</option>
+                        <option value="8">Fair (F)</option>                     
+                    </select>
                 </div>
             </div>
-                        
+
             <div class="form-group">
                 <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Note:</label>
                 <div class="col-sm-9">
                     <textarea class="form-control" rows="3" id="inputCondition" placeholder="Note ..." ng-model="vm.album.note"></textarea>
                 </div>
             </div>            
-            
+
             <div class="form-group">
                 <label for="inputUPC" class="col-sm-3 control-label" style="text-align: left">UPC</label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" id="inputUPC" placeholder="UPC" ng-model="vm.album.upc">
                 </div>
             </div> 
-            
+
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
                     <button type="submit" class="btn btn-default">Populate UPC</button>

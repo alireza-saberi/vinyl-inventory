@@ -12,13 +12,13 @@
         vm.save = save;
         vm.cancel = cancel;
 //        vm.album = null;
-        
+
         vm.album = {
             album_name: '',
             artist: '',
-            album_year:'',
-            album_condition:'',
-            note:'',
+            album_year: '',
+            album_condition: '',
+            note: '',
             upc: '',
             username: $rootScope.globals.currentUser.username
         };

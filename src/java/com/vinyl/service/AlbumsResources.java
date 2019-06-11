@@ -7,7 +7,6 @@ package com.vinyl.service;
 
 import com.vinyl.DAO.AlbumDAO;
 import com.vinyl.model.Album;
-import com.vinyl.model.UserAlbum;
 import com.vinyl.model.Users;
 import java.util.ArrayList;
 import javax.ws.rs.core.Context;

@@ -16,7 +16,7 @@
         service.Update = Update;
         service.Delete = Delete;
         service.GetAlbums = GetAlbums;
-        
+
         service.deleteAlbum = deleteAlbum;
         service.editAlbum = editAlbum;
         service.addAlbum = addAlbum;
@@ -28,17 +28,17 @@
             console.log("getting albums inside service from the user %o...", user);
             return $http.post('http://localhost:8080/VinylRecord/webresources/albums/readalbums', user).then(handleSuccess, handleError('Error getting user\'s album'));
         }
-        
-        function deleteAlbum(album){
+
+        function deleteAlbum(album) {
             return $http.post('http://localhost:8080/VinylRecord/webresources/albums/delalbum', album).then(handleSuccess, handleError('Error deleting an album'));
         }
-        
-        function editAlbum(album){
+
+        function editAlbum(album) {
             return $http.post('http://localhost:8080/VinylRecord/webresources/albums/updatalbum', album).then(handleSuccess, handleError('Error updating an album'));
         }
-        
+
         function addAlbum(album) {
-            return $http.post('http://localhost:8080/VinylRecord/webresources/albums/addalbum', album).then(handleSuccess, handleError('Error adding an album'));            
+            return $http.post('http://localhost:8080/VinylRecord/webresources/albums/addalbum', album).then(handleSuccess, handleError('Error adding an album'));
         }
 
         function GetAll() {

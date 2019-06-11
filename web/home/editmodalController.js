@@ -12,22 +12,22 @@
         vm.cancel = cancel;
         vm.album = editAlbum;
 
-    initController();
+        initController();
 
-    function initController() {
-        console.log("ModalEditCtrl is opened ...");      
-    }
+        function initController() {
+            console.log("ModalEditCtrl is opened ...");
+        }
 
-    function save() {
-        console.log("Save is clicked.");
-        UserService.editAlbum(vm.album);
-        $uibModalInstance.close("Ok");
-    }
+        function save() {
+            console.log("Save is clicked.");
+            UserService.editAlbum(vm.album);
+            $uibModalInstance.close("Ok");
+        }
 
-    function cancel() {
-        console.log("cancel is clicked.");
-        $uibModalInstance.dismiss();
-    }
+        function cancel() {
+            console.log("cancel is clicked.");
+            $uibModalInstance.dismiss();
+        }
     }
 
 })();
