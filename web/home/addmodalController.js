@@ -33,12 +33,12 @@
             console.log("Save is clicked.");
             console.log("Trying to save %o", vm.album);
             UserService.addAlbum(vm.album);
-            $uibModalInstance.close(vm.album);
+            $uibModalInstance.close("Yes");
         }
 
         function cancel() {
             console.log("cancel is clicked.");
-            $uibModalInstance.dismiss();
+            $uibModalInstance.dismiss("No");
         }
     }
 

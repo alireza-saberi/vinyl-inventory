@@ -84,7 +84,6 @@
             });
 
             modalInstance.result.then(function (response) {
-                console.log("%o button hitted", response);
                 initController();
             });
         }
@@ -105,7 +104,7 @@
             });
 
             modalInstance.result.then(function (response) {
-                $scope.result = `${response} button hitted`;
+                initController();
             });
         }
 
@@ -120,8 +119,7 @@
             });
 
             modalInstance.result.then(function (response) {
-                console.log(response);
-                $scope.result = `${response} button hitted`;
+                initController();
             });
         }
 
