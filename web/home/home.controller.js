@@ -84,7 +84,8 @@
             });
 
             modalInstance.result.then(function (response) {
-                $scope.result = `${response} button hitted`;
+                console.log("%o button hitted", response);
+                initController();
             });
         }
 

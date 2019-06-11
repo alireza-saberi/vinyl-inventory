@@ -20,12 +20,12 @@
         }
 
         function cancel() {
-            $uibModalInstance.dismiss();
+            $uibModalInstance.dismiss("No");
         }
 
         function deleteAlbum() {
             UserService.deleteAlbum(delAlbum);
-            $uibModalInstance.close("Ok");
+            $uibModalInstance.close("Yes");
         }
     }
 
