@@ -55,19 +55,17 @@ public class AlbumsResources {
     public ArrayList<Album> readAlbums(Users user) {
         System.out.println("reading user albums ....");
         AlbumDAO db = new AlbumDAO();
-        System.out.println(db.readAlbums(user).size());
         return db.readAlbums(user);
     }
 
-    @PUT
-    @Path("/updateuser")
+    @POST
+    @Path("/updatalbum")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("text/plain")
-    public int updateAlbum(UserAlbum userAlbum) {
-        Users user = userAlbum.getUser();
-        Album album = userAlbum.getAlbum();
+    public int updateAlbum(Album album) {
+        System.out.println("updating an album from the user");
         AlbumDAO db = new AlbumDAO();
-        return db.updateAlbum(user, album);
+        return db.updateAlbum(album);
     }
 
     @POST
@@ -75,10 +73,6 @@ public class AlbumsResources {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("text/plain")
     public int deleteAlbum(Album album) {
-//        Users user = userAlbum.getUser();
-//        Album album = userAlbum.getAlbum();
-        System.out.println("deleting an album from the user");
-        System.out.println("" + album);
         AlbumDAO db = new AlbumDAO();
         return db.deleteAlbum(album);
     }

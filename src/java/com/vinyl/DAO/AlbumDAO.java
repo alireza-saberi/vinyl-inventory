@@ -90,10 +90,12 @@ public class AlbumDAO {
     }
 
     // update album for a specific user
-    public int updateAlbum(Users user, Album album) {
+    public int updateAlbum(Album album) {
         try {
             obj_DB_Connection = new DBConnector();
             connection = obj_DB_Connection.getConnection();
+            
+            System.out.println("album to update is ..." + album.toString());
 
             String query = "UPDATE album "
                     + "SET album_name=?, artist=?, album_year=?, album_condition=?, upc=?, note=? "
@@ -105,9 +107,10 @@ public class AlbumDAO {
             preparedstatement.setString(4, album.getAlbum_condition());
             preparedstatement.setString(5, album.getUpc());
             preparedstatement.setString(6, album.getNote());
-            preparedstatement.setString(7, user.getUsername());
+            preparedstatement.setString(7, album.getUsername());
 
             rowsAffected = preparedstatement.executeUpdate();
+            System.out.println("affected row is " + rowsAffected);
 
         } catch (SQLException e) {
             System.out.println(e);

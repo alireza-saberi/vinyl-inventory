@@ -5,45 +5,22 @@
             .module('app')
             .controller('ModalEditCtrl', ModalEditCtrl);
 
-    ModalEditCtrl.$inject = ['$uibModalInstance', 'editAlbum'];
-    function ModalEditCtrl($uibModalInstance, editAlbum) {
+    ModalEditCtrl.$inject = ['$uibModalInstance', 'editAlbum', 'UserService'];
+    function ModalEditCtrl($uibModalInstance, editAlbum, UserService) {
         var vm = this;
-
-        vm.ok = ok;
+        vm.save = save;
         vm.cancel = cancel;
-
-//        vm.album = {
-//            albumName : editAlbum.album_name,
-//            artist : editAlbum.artist,
-//            album_year : editAlbum.album_year,
-//            album_condition : editAlbum.album_condition,
-//            upc : editAlbum.upc,
-//            note : editAlbum.note,
-//            album_id : editAlbum.album_id,
-//            username : editAlbum.username
-//        }
-
-    vm.album = editAlbum;
+        vm.album = editAlbum;
 
     initController();
 
     function initController() {
-        console.log("ModalEditCtrl is opened ..");
-        console.log("editAlbum is %o", editAlbum);
-        console.log("vm.album is %o", vm.album);
-//        vm.album.albumName = 
-//        vm.album.artist
-//        vm.album.album_year
-//        vm.album.album_condition
-//        vm.album.upc
-//        vm.album.note
-//        vm.album.album_id
-//        vm.album.username
-        
+        console.log("ModalEditCtrl is opened ...");      
     }
 
-    function ok() {
-        console.log("ok is clicked.");
+    function save() {
+        console.log("Save is clicked.");
+        UserService.editAlbum(vm.album);
         $uibModalInstance.close("Ok");
     }
 
