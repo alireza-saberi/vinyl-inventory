@@ -88,7 +88,7 @@
             });
         }
 
-        function openEditModal() {
+        function openEditModal(album) {
             console.log("Opening Edit modal ..");
 
             var modalInstance = $uibModal.open({
@@ -97,8 +97,8 @@
                 controllerAs: 'vm',
                 size: '',
                 resolve: {
-                    items: function () {
-                        return true;
+                    editAlbum: function () {
+                        return album;
                     }
                 }
             });
