@@ -11,14 +11,11 @@
 
         vm.user = null;
         vm.allUsers = [];
-        vm.deleteUser = deleteUser;
         vm.userAlbums = null;
-        vm.deleteAlbum = deleteAlbum;
-        vm.editAlbum = editAlbum;
-        vm.addAlbum = addAlbum;
         vm.openDeleteModal = openDeleteModal;
         vm.openEditModal = openEditModal;
         vm.openAddModal = openAddModal;
+        vm.conditionConveter = conditionConveter;
 
         initController();
 
@@ -49,24 +46,38 @@
                     });
         }
 
-        function deleteUser(id) {
-//            UserService.Delete(id)
-//                    .then(function () {
-//                        loadAllUsers();
-//                    });
-            console.log("deleting user ...");
-        }
-
-        function deleteAlbum(album) {
-            console.log("Deleting an album from the user ...");
-        }
-
-        function editAlbum(album_id) {
-            console.log("Editing an album for the user ...");
-        }
-
-        function addAlbum() {
-            console.log("Adding a new album for the user ...");
+        function conditionConveter(input) {
+            var code = parseInt(input);
+            var condition;
+            switch (code) {
+                case 1:
+                    condition = "Mint (M)";
+                    break;
+                case 2:
+                    condition = "Near Mint (NM or M-)";
+                    break;
+                case 3:
+                    condition = "Very Good Plus (VG+)";
+                    break;
+                case 4:
+                    condition = "Very Good (VG)";
+                    break;
+                case 5:
+                    condition = "Good (G)";
+                    break;
+                case 6:
+                    condition = "Good Plus (G+)";
+                    break;
+                case 7:
+                    condition = "Poor (P)";
+                    break;
+                case 8:
+                    condition = "Fair (F)";
+                    break;
+                default:
+                    condition = "-";
+            }
+            return condition;
         }
 
         function openDeleteModal(album) {
