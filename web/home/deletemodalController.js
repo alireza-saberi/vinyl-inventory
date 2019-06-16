@@ -24,8 +24,10 @@
         }
 
         function deleteAlbum() {
-            UserService.deleteAlbum(delAlbum);
-            $uibModalInstance.close("Yes");
+            UserService.deleteAlbum(delAlbum).then(function(e){
+                $uibModalInstance.close("Yes");
+            });
+            
         }
     }
 

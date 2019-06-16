@@ -23,11 +23,14 @@
                 console.log("year should be a number");
             } else if (vm.album.album_year === "") {
                 vm.album.album_year = 0;
-                UserService.editAlbum(vm.album);
-                $uibModalInstance.close("Yes");
+                UserService.editAlbum(vm.album).then(function(e){
+                    $uibModalInstance.close("Yes");
+                });
+                
             } else {
-                UserService.editAlbum(vm.album);
-                $uibModalInstance.close("Yes");
+                UserService.editAlbum(vm.album).then(function(e){
+                    $uibModalInstance.close("Yes");
+                });
             }
         }
 

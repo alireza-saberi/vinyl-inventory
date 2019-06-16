@@ -37,11 +37,15 @@
                 FlashService.Error("Wrong credential ...");
             } else if (vm.album.album_year === "") {
                 vm.album.album_year = 0;
-                UserService.addAlbum(vm.album);
-                $uibModalInstance.close("Yes");
+                UserService.addAlbum(vm.album)
+                        .then(function(e){
+                            $uibModalInstance.close("Yes");
+                        });
             } else {
-                UserService.addAlbum(vm.album);
-                $uibModalInstance.close("Yes");
+                UserService.addAlbum(vm.album)
+                        .then(function(e){
+                            $uibModalInstance.close("Yes");
+                        });
             }
         }
 
