@@ -9,13 +9,18 @@ import com.vinyl.DAO.AlbumDAO;
 import com.vinyl.model.Album;
 import com.vinyl.model.Users;
 import java.util.ArrayList;
+import javax.json.JsonArray;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -80,5 +85,15 @@ public class AlbumsResources {
     public int deleteAllAlbum(Users user) {
         AlbumDAO db = new AlbumDAO();
         return db.deleteAllAlbum(user);
+    }
+    
+    @GET
+    @Path("/getconditions")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonArray getconditions() {
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target("http://webapi.brendanwood.me/api/albumconditions");
+        JsonArray response = target.request(MediaType.APPLICATION_JSON).get(JsonArray.class);
+        return response;
     }
 }
