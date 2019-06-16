@@ -1,0 +1,45 @@
+
+<div>
+    <div class="modal-header">
+        <h4>
+            Meaning of the conditions
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div class="table-responsive">
+            <table class="table" data-ng-repeat="cond in vm.conditions">
+                <tr>
+                    <td>
+                        Condition Name
+                    </td>
+                    <td>
+                        {{ cond.ConditionName }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Condition Code
+                    </td>
+                    <td>
+                        {{ cond.ConditionCode }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Condition Description
+                    </td>
+                    <td>
+                        {{ cond.ConditionDescription }}
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" data-ng-click="vm.ok()">OK</button>
+    </div>
+</div>

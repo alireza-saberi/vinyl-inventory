@@ -5,8 +5,8 @@
             .module('app')
             .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['UserService', '$rootScope', '$uibModal'];
-    function HomeController(UserService, $rootScope, $uibModal) {
+    HomeController.$inject = ['UserService', '$rootScope', '$uibModal', '$location'];
+    function HomeController(UserService, $rootScope, $uibModal, $location) {
         var vm = this;
 
         vm.user = null;
@@ -16,12 +16,12 @@
         vm.openEditModal = openEditModal;
         vm.openAddModal = openAddModal;
         vm.conditionConveter = conditionConveter;
+        vm.openConditionModal = openConditionModal;
 
         initController();
 
         function initController() {
             loadCurrentUser();
-            //loadAllUsers();
             loadCurrentUserAlbums();
         }
 
@@ -70,9 +70,6 @@
                     break;
                 case 7:
                     condition = "Poor (P)";
-                    break;
-                case 8:
-                    condition = "Fair (F)";
                     break;
                 default:
                     condition = "-";
@@ -125,6 +122,21 @@
             var modalInstance = $uibModal.open({
                 templateUrl: "home/addmodal.html",
                 controller: "ModalAddCtrl",
+                controllerAs: 'vm',
+                size: ''
+            });
+
+            modalInstance.result.then(function (response) {
+                initController();
+            });
+        }
+
+        function openConditionModal() {
+            console.log("Opening Condition modal ..");
+
+            var modalInstance = $uibModal.open({
+                templateUrl: "home/condition.modal.html",
+                controller: "ModalConditionCtrl",
                 controllerAs: 'vm',
                 size: ''
             });

@@ -9,17 +9,13 @@
     function UserService($http) {
         var service = {};
 
-        service.GetAll = GetAll;
-        service.GetById = GetById;
-        service.GetByUsername = GetByUsername;
-        service.Create = Create;
-        service.Update = Update;
-        service.Delete = Delete;
         service.GetAlbums = GetAlbums;
 
         service.deleteAlbum = deleteAlbum;
         service.editAlbum = editAlbum;
         service.addAlbum = addAlbum;
+        service.getByUpc = getByUpc;
+        service.albumConditions = albumConditions;
 
         return service;
 
@@ -41,29 +37,30 @@
             return $http.post('http://localhost:8080/VinylRecord/webresources/albums/addalbum', album).then(handleSuccess, handleError('Error adding an album'));
         }
 
-        function GetAll() {
-            console.log("getting all inside service ...");
-            return $http.get('/api/users').then(handleSuccess, handleError('Error getting all users'));
-        }
 
-        function GetById(id) {
-            return $http.get('/api/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
-        }
+        function getByUpc() {
 
-        function GetByUsername(username) {
-            return $http.get('/api/users/' + username).then(handleSuccess, handleError('Error getting user by username'));
-        }
+            console.log("getByUpc is called ...");
 
-        function Create(user) {
-            return $http.post('http://localhost:8080/VinylRecord/webresources/user/adduser', {first_name: user.firstName, last_name: user.lastName, username: user.username, user_password: user.password}).then(handleSuccess, handleError('Error creating user'));
-        }
 
-        function Update(user) {
-            return $http.put('/api/users/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
-        }
 
-        function Delete(id) {
-            return $http.delete('/api/users/' + id).then(handleSuccess, handleError('Error deleting user'));
+            return $http({
+                method: 'GET',
+                url: 'http://api.napster.com/v2.2/albums/upc/602498619070', ///190758991320',
+                headers: {
+                    'apikey': 'ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5'
+                }}).then(handleSuccess, handleError('Error getting user by id'))
+//            return $http.get('http://api.napster.com/v2.2/albums/upc/602498619070',
+//            {
+//            headers: {'Authorization': 'apikey: ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5'
+//            }
+//        }
+//        ).then(handleSuccess, handleError('Error getting user by id'));
+//            return $http.get('http://api.napster.com/v2.2/albums/upc/602498619070?apikey=ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5').then(handleSuccess, handleError('Error getting user by id'));
+        }
+        
+        function albumConditions(){
+            return $http.get('http://localhost:8080/VinylRecord/webresources/albums/getconditions').then(handleSuccess, handleError('Error getting user\'s album'));
         }
 
         // private functions

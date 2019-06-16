@@ -11,7 +11,7 @@
 
         vm.save = save;
         vm.cancel = cancel;
-//        vm.album = null;
+        vm.upc = upc;
 
         vm.album = {
             album_name: '',
@@ -39,15 +39,20 @@
                 vm.album.album_year = 0;
                 UserService.addAlbum(vm.album);
                 $uibModalInstance.close("Yes");
-            } else{
-               UserService.addAlbum(vm.album);
-               $uibModalInstance.close("Yes"); 
+            } else {
+                UserService.addAlbum(vm.album);
+                $uibModalInstance.close("Yes");
             }
         }
 
         function cancel() {
             console.log("cancel is clicked.");
             $uibModalInstance.dismiss("No");
+        }
+
+        function upc() {
+            console.log("ups is called ...");
+            console.log(UserService.getByUpc());
         }
     }
 

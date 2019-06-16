@@ -29,13 +29,12 @@
                     <select class="form-control" id="inputCondition" ng-model="vm.album.album_condition">
                         <option value="" selected disabled hidden>Choose here</option>
                         <option value="1">Mint (M)</option>
-                        <option value="2">Near Mint (NM or M-)</option>
+                        <option value="2">Near Mint (NM)</option>
                         <option value="3">Very Good Plus (VG+)</option>
                         <option value="4">Very Good (VG)</option>
                         <option value="5">Good (G)</option>
                         <option value="6">Good Plus (G+)</option>
-                        <option value="7">Poor (P)</option>
-                        <option value="8">Fair (F)</option>                     
+                        <option value="7">Poor (P)</option>                 
                     </select>
                 </div>
             </div>
@@ -56,7 +55,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-default">Populate UPC</button>
+                    <button type="button" class="btn btn-default" data-ng-click="vm.upc()">Populate UPC</button>
                 </div>
             </div>
         </form>
