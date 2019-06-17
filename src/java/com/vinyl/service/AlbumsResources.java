@@ -18,10 +18,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -96,4 +98,15 @@ public class AlbumsResources {
         JsonArray response = target.request(MediaType.APPLICATION_JSON).get(JsonArray.class);
         return response;
     }
+    
+    @GET
+    @Path("{upc}")
+    @Consumes("text/plain")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAlbumInformation(@PathParam("upc") String upc) {
+        Client client = ClientBuilder.newClient();
+        WebTarget target = client.target("http://webapi.brendanwood.me/api/albums/" + upc);
+        Response res = target.request(MediaType.APPLICATION_JSON).get();
+        return res;
+    }    
 }

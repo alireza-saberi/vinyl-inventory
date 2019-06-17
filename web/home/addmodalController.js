@@ -56,7 +56,11 @@
 
         function upc() {
             console.log("ups is called ...");
-            console.log(UserService.getByUpc());
+            UserService.getByUpc(12345678).then(function(e){
+                vm.album.album_name = e.AlbumName;
+                vm.album.artist = e.Artist;
+                vm.album.album_year = e.PressingYear;
+            });          
         }
     }
 

@@ -80,7 +80,7 @@
         function openDeleteModal(album) {
 
             var modalInstance = $uibModal.open({
-                templateUrl: "home/deletemodal.html",
+                templateUrl: "home/delete.view.modal.html",
                 controller: "ModalDeleteCtrl",
                 controllerAs: 'vm',
                 size: '',
@@ -100,7 +100,7 @@
             console.log("Opening Edit modal ..");
 
             var modalInstance = $uibModal.open({
-                templateUrl: "home/editmodal.html",
+                templateUrl: "home/edit.view.modal.html",
                 controller: "ModalEditCtrl",
                 controllerAs: 'vm',
                 size: '',
@@ -120,7 +120,7 @@
             console.log("Opening Add modal ..");
 
             var modalInstance = $uibModal.open({
-                templateUrl: "home/addmodal.html",
+                templateUrl: "home/add.view.modal.html",
                 controller: "ModalAddCtrl",
                 controllerAs: 'vm',
                 size: ''
@@ -135,7 +135,7 @@
             console.log("Opening Condition modal ..");
 
             var modalInstance = $uibModal.open({
-                templateUrl: "home/condition.modal.html",
+                templateUrl: "home/condition.view.modal.html",
                 controller: "ModalConditionCtrl",
                 controllerAs: 'vm',
                 size: ''

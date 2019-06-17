@@ -38,25 +38,30 @@
         }
 
 
-        function getByUpc() {
+        function getByUpc(upc) {
 
             console.log("getByUpc is called ...");
+            return $http.get('http://localhost:8080/VinylRecord/webresources/albums/' + upc).then(handleSuccess, handleError('Error getting album information from Branden Wood service'));
 
 
 
-            return $http({
-                method: 'GET',
-                url: 'http://api.napster.com/v2.2/albums/upc/602498619070', ///190758991320',
-                headers: {
-                    'apikey': 'ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5'
-                }}).then(handleSuccess, handleError('Error getting user by id'))
+//            return $http({
+//                method: 'GET',
+//                url: 'http://api.napster.com/v2.2/albums/upc/602498619070', ///190758991320',
+//                headers: {
+//                    'Authorization': 'BASIC ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5'
+//                }}).then(handleSuccess, handleError('problem connecting with Napster'))
+            
+            
 //            return $http.get('http://api.napster.com/v2.2/albums/upc/602498619070',
 //            {
 //            headers: {'Authorization': 'apikey: ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5'
 //            }
 //        }
 //        ).then(handleSuccess, handleError('Error getting user by id'));
-//            return $http.get('http://api.napster.com/v2.2/albums/upc/602498619070?apikey=ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5').then(handleSuccess, handleError('Error getting user by id'));
+//        
+//        
+//            return $http.get('http://api.napster.com/v2.2/albums/upc/602498619070?apikey=ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5').then(handleSuccess, handleError('problem connecting with Napster'));
         }
         
         function albumConditions(){
