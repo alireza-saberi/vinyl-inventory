@@ -21,7 +21,6 @@
 
 
         function GetAlbums(user) {
-            console.log("getting albums inside service from the user %o...", user);
             return $http.post('http://localhost:8080/VinylRecord/webresources/albums/readalbums', user).then(handleSuccess, handleError('Error getting user\'s album'));
         }
 
@@ -39,8 +38,6 @@
 
 
         function getByUpc(upc) {
-
-            console.log("getByUpc is called ...");
             return $http.get('http://localhost:8080/VinylRecord/webresources/albums/' + upc).then(handleSuccess, handleError('Error getting album information from Branden Wood service'));
 
 

@@ -5,12 +5,11 @@
             .module('app')
             .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['UserService', '$rootScope', '$uibModal', '$location'];
-    function HomeController(UserService, $rootScope, $uibModal, $location) {
+    HomeController.$inject = ['UserService', '$rootScope', '$uibModal'];
+    function HomeController(UserService, $rootScope, $uibModal) {
         var vm = this;
 
         vm.user = null;
-        vm.allUsers = [];
         vm.userAlbums = null;
         vm.openDeleteModal = openDeleteModal;
         vm.openEditModal = openEditModal;
@@ -27,7 +26,6 @@
 
         function loadCurrentUser() {
             vm.user = $rootScope.globals.currentUser;
-            console.log("loging loadCurrentUser ... %o", vm.user);
         }
 
         function loadCurrentUserAlbums() {
@@ -36,13 +34,6 @@
                     .then(function (albums) {
                         vm.userAlbums = albums;
                         console.log("albums are ... %o", vm.userAlbums);
-                    });
-        }
-
-        function loadAllUsers() {
-            UserService.GetAll()
-                    .then(function (users) {
-                        vm.allUsers = users;
                     });
         }
 
@@ -97,7 +88,6 @@
         }
 
         function openEditModal(album) {
-            console.log("Opening Edit modal ..");
 
             var modalInstance = $uibModal.open({
                 templateUrl: "home/edit.view.modal.html",
@@ -117,7 +107,6 @@
         }
 
         function openAddModal() {
-            console.log("Opening Add modal ..");
 
             var modalInstance = $uibModal.open({
                 templateUrl: "home/add.view.modal.html",
@@ -132,7 +121,6 @@
         }
 
         function openConditionModal() {
-            console.log("Opening Condition modal ..");
 
             var modalInstance = $uibModal.open({
                 templateUrl: "home/condition.view.modal.html",

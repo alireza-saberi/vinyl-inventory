@@ -16,7 +16,6 @@
         initController();
 
         function initController() {
-            console.log("ModalDeleteCtrl is opened to delete %o...", delAlbum);
         }
 
         function cancel() {

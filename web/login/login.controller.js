@@ -20,7 +20,6 @@
             vm.dataLoading = true;
             AuthenticationService.Login(vm.username, vm.password, function (response) {
                 if (Object.keys(response.data).length) {
-                    console.log(response.data);
                     AuthenticationService.SetCredentials(vm.username, vm.password, response.data.first_name, response.data.last_name);
                     $location.path('/');
                 } else {

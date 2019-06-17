@@ -27,11 +27,9 @@
         initController();
 
         function initController() {
-            console.log("ModalAddCtrl is opened ..");
         }
 
         function save() {
-            console.log("Save is clicked.");
             
             if (vm.album.album_condition === null){
                 vm.album.album_condition = '-';
@@ -51,16 +49,14 @@
         }
 
         function cancel() {
-            console.log("cancel is clicked.");
             $uibModalInstance.dismiss("No");
         }
 
         function upc(upcNo) {
-            console.log("ups is called ... %o", upcNo);
             UserService.getByUpc(upcNo).then(function (e) {
                 vm.album.album_name = e.AlbumName;
                 vm.album.artist = e.Artist;
-                vm.album.album_year = e.PressingYear;
+                vm.album.album_year = parseInt(e.PressingYear);
             });
         }
     }

@@ -15,7 +15,6 @@
         initController();
 
         function initController() {
-            console.log("ModalConditionCtrl is opened ..");
             loadCondition();
         }
 
@@ -28,7 +27,6 @@
             UserService.albumConditions()
                     .then(function (conds) {
                         vm.conditions = conds;
-                        console.log("condition is %o", vm.conditions);
                     });
         }
 
