@@ -49,7 +49,9 @@ public class AlbumsResources {
     public int addAlbum(Album album) {
         AlbumDAO db = new AlbumDAO();
         System.out.println("checking for existance of the album ....");
-        System.out.println(db.albumExists(album));
+        if(db.albumExists(album)){
+            return -1;
+        }
         return db.addAlbum(album);
     }
 

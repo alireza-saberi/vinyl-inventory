@@ -180,7 +180,7 @@ public class AlbumDAO {
             connection = obj_DB_Connection.getConnection();
 
             String query = "SELECT * from album "
-                    + "username=? AND album_name=?";
+                    + "WHERE username=? AND album_name=?";
             preparedstatement = connection.prepareStatement(query);
             preparedstatement.setString(1, album.getUsername());
             preparedstatement.setString(2, album.getAlbum_name());
