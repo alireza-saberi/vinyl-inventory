@@ -1,67 +1,68 @@
-<div>
+<form name="form" class="form-horizontal">
     <div class="modal-body">
         <h4>Edit the album "{{ vm.album.album_name}}"</h4>
         <hr>
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label for="inputAlbum" class="col-sm-3 control-label" style="text-align: left">Album Name:</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputAlbum" placeholder="Album Name" ng-model="vm.album.album_name" disabled>
-                </div>
+        <div class="form-group">
+            <label for="inputAlbum" class="col-sm-3 control-label" style="text-align: left">Album Name:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputAlbum" placeholder="Album Name" ng-model="vm.album.album_name" disabled>
             </div>
-            <div class="form-group">
-                <label for="inputArtist" class="col-sm-3 control-label" style="text-align: left">Artist | Band:</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputArtist" placeholder="Artist name" ng-model="vm.album.artist">
-                </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="inputArtist" class="col-sm-3 control-label" style="text-align: left">Artist | Band:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputArtist" placeholder="Artist name" ng-model="vm.album.artist">
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="inputYear" class="col-sm-3 control-label" style="text-align: left">Year:</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputYear" placeholder="Default Year is 0" ng-model="vm.album.album_year">
-                </div>
+        <div class="form-group" ng-class="{ 'has-warning': form.inputYear.$touched }">
+            <label for="inputYear" class="col-sm-3 control-label" style="text-align: left">Year:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="inputYear" id="inputYear" placeholder="Default Year is 0" ng-model="vm.album.album_year">
+                <span ng-show="form.inputYear.$touched" class="help-block">An album without year will be submitted 0</span>                 
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Condition:</label>
-                <div class="col-sm-9">
-                    <select class="form-control" id="inputCondition" ng-model="vm.album.album_condition">
-                        <option value="1">Mint (M)</option>
-                        <option value="2">Near Mint (NM or M-)</option>
-                        <option value="3">Very Good Plus (VG+)</option>
-                        <option value="4">Very Good (VG)</option>
-                        <option value="5">Good (G)</option>
-                        <option value="6">Good Plus (G+)</option>
-                        <option value="7">Poor (P)</option>               
-                    </select>
-                </div>
+        <div class="form-group" ng-class="{ 'has-warning': form.inputCondition.$touched }">
+            <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Condition:</label>
+            <div class="col-sm-9">
+                <select class="form-control" name="inputCondition" id="inputCondition" ng-model="vm.album.album_condition">
+                    <option value="1">Mint (M)</option>
+                    <option value="2">Near Mint (NM or M-)</option>
+                    <option value="3">Very Good Plus (VG+)</option>
+                    <option value="4">Very Good (VG)</option>
+                    <option value="5">Good (G)</option>
+                    <option value="6">Good Plus (G+)</option>
+                    <option value="7">Poor (P)</option>               
+                </select>
+                <span ng-show="form.inputCondition.$touched" class="help-block">An album without condition will be submitted -</span>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Note:</label>
-                <div class="col-sm-9">
-                    <textarea class="form-control" rows="3" id="inputCondition" placeholder="Note ..." ng-model="vm.album.note"></textarea>
-                </div>
-            </div>            
-
-            <div class="form-group">
-                <label for="inputUPC" class="col-sm-3 control-label" style="text-align: left">UPC</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" id="inputUPC" placeholder="UPC" ng-model="vm.album.upc">
-                </div>
-            </div> 
-
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-default">Populate UPC</button>
-                </div>
+        <div class="form-group">
+            <label for="inputCondition" class="col-sm-3 control-label" style="text-align: left">Note:</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" rows="3" id="inputCondition" placeholder="Note ..." ng-model="vm.album.note"></textarea>
             </div>
-        </form>
+        </div>            
+
+        <div class="form-group">
+            <label for="inputUPC" class="col-sm-3 control-label" style="text-align: left">UPC</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputUPC" placeholder="UPC" ng-model="vm.album.upc">
+            </div>
+        </div> 
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" class="btn btn-default">Populate UPC</button>
+            </div>
+        </div>
 
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-primary" data-ng-click="vm.save()">Save</button>
         <button class="btn btn-warning" data-ng-click="vm.cancel()">Cancel</button>
     </div>
-</div>
+</form>

@@ -19,18 +19,22 @@
         }
 
         function save() {
-            if (isNaN(vm.album.album_year)) {
-                console.log("year should be a number");
-            } else if (vm.album.album_year === "") {
+            console.log("Save is clicked.");
+            
+            if (vm.album.album_condition === null){
+                vm.album.album_condition = '-';
+            }
+            if (vm.album.album_year === "" || vm.album.album_year === null){
                 vm.album.album_year = 0;
-                UserService.editAlbum(vm.album).then(function (e) {
-                    $uibModalInstance.close("Yes");
-                });
-
-            } else {
-                UserService.editAlbum(vm.album).then(function (e) {
-                    $uibModalInstance.close("Yes");
-                });
+            }
+            
+            // avoiding from empty name, nan year to be submitted
+            if(vm.album.album_name !== "" && vm.album.album_name !== null && !isNaN(vm.album.album_year)) {
+                console.log("Trying to save %o", vm.album);
+                UserService.editAlbum(vm.album)
+                        .then(function (e) {
+                            $uibModalInstance.close("Yes");
+                        });
             }
         }
 
