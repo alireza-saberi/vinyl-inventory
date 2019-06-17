@@ -80,6 +80,7 @@ public class AlbumsResources {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("text/plain")
     public int deleteAlbum(Album album) {
+        System.out.println("Deleting an album from the user");
         AlbumDAO db = new AlbumDAO();
         return db.deleteAlbum(album);
     }
@@ -89,6 +90,7 @@ public class AlbumsResources {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces("text/plain")
     public int deleteAllAlbum(Users user) {
+        System.out.println("Deleting all albums from the user");
         AlbumDAO db = new AlbumDAO();
         return db.deleteAllAlbum(user);
     }

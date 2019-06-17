@@ -76,7 +76,7 @@ public class UserServices {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Users readUser(Users user) {
-        System.out.println("reading user ..." + user.toString());
+        System.out.println("Reading user ..." + user.toString());
         UserDAO db = new UserDAO();
         Users daoOutcome = db.readUser(user);
         if (daoOutcome != null) {
