@@ -54,7 +54,7 @@
                     condition = "Mint (M)";
                     break;
                 case 2:
-                    condition = "Near Mint (NM or M-)";
+                    condition = "Near Mint (NM)";
                     break;
                 case 3:
                     condition = "Very Good Plus (VG+)";

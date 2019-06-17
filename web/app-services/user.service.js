@@ -51,8 +51,8 @@
 //                headers: {
 //                    'Authorization': 'BASIC ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5'
 //                }}).then(handleSuccess, handleError('problem connecting with Napster'))
-            
-            
+
+
 //            return $http.get('http://api.napster.com/v2.2/albums/upc/602498619070',
 //            {
 //            headers: {'Authorization': 'apikey: ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5'
@@ -63,8 +63,8 @@
 //        
 //            return $http.get('http://api.napster.com/v2.2/albums/upc/602498619070?apikey=ZjJiN2VkMmMtMDAzMC00ZmExLWE0NTEtOTNmMzA0NGNmZGI5').then(handleSuccess, handleError('problem connecting with Napster'));
         }
-        
-        function albumConditions(){
+
+        function albumConditions() {
             return $http.get('http://localhost:8080/VinylRecord/webresources/albums/getconditions').then(handleSuccess, handleError('Error getting user\'s album'));
         }
 

@@ -23,13 +23,13 @@
             console.log("Save is clicked.");
             $uibModalInstance.close("ok");
         }
-        
-        function loadCondition(){
+
+        function loadCondition() {
             UserService.albumConditions()
-                .then(function(conds){
-                    vm.conditions = conds;
-                    console.log("condition is %o", vm.conditions); 
-                });
+                    .then(function (conds) {
+                        vm.conditions = conds;
+                        console.log("condition is %o", vm.conditions);
+                    });
         }
 
     }

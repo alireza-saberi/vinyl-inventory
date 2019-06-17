@@ -173,4 +173,33 @@ public class AlbumDAO {
 
     }
 
+    public boolean albumExists(Album album) {
+
+        try {
+            obj_DB_Connection = new DBConnector();
+            connection = obj_DB_Connection.getConnection();
+
+            String query = "SELECT * from album "
+                    + "username=? AND album_name=?";
+            preparedstatement = connection.prepareStatement(query);
+            preparedstatement.setString(1, album.getUsername());
+            preparedstatement.setString(2, album.getAlbum_name());
+
+            resultSet = preparedstatement.executeQuery();
+
+            if (resultSet.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            obj_DB_Connection.closeConnection(obj_DB_Connection, preparedstatement);
+        }
+
+        return false;
+    }
+
 }

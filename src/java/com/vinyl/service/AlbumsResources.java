@@ -48,6 +48,8 @@ public class AlbumsResources {
     @Produces("text/plain")
     public int addAlbum(Album album) {
         AlbumDAO db = new AlbumDAO();
+        System.out.println("checking for existance of the album ....");
+        System.out.println(db.albumExists(album));
         return db.addAlbum(album);
     }
 
@@ -88,7 +90,7 @@ public class AlbumsResources {
         AlbumDAO db = new AlbumDAO();
         return db.deleteAllAlbum(user);
     }
-    
+
     @GET
     @Path("/getconditions")
     @Produces(MediaType.APPLICATION_JSON)
@@ -98,7 +100,7 @@ public class AlbumsResources {
         JsonArray response = target.request(MediaType.APPLICATION_JSON).get(JsonArray.class);
         return response;
     }
-    
+
     @GET
     @Path("{upc}")
     @Consumes("text/plain")
@@ -108,5 +110,5 @@ public class AlbumsResources {
         WebTarget target = client.target("http://webapi.brendanwood.me/api/albums/" + upc);
         Response res = target.request(MediaType.APPLICATION_JSON).get();
         return res;
-    }    
+    }
 }
