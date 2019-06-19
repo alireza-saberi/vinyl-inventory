@@ -10,12 +10,12 @@
         var service = {};
 
         service.GetAlbums = GetAlbums;
-
         service.deleteAlbum = deleteAlbum;
         service.editAlbum = editAlbum;
         service.addAlbum = addAlbum;
         service.getByUpc = getByUpc;
         service.albumConditions = albumConditions;
+        service.create = create;
 
         return service;
 
@@ -63,6 +63,10 @@
 
         function albumConditions() {
             return $http.get('http://localhost:8080/VinylRecord/webresources/albums/getconditions').then(handleSuccess, handleError('Error getting user\'s album'));
+        }
+        
+        function create(user){
+            return $http.post('http://localhost:8080/VinylRecord/webresources/user/adduser', {first_name: user.firstName, last_name: user.lastName, username: user.username, user_password: user.password}).then(handleSuccess, handleError('Error creating user'));
         }
 
         // private functions

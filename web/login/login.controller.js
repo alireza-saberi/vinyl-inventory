@@ -13,14 +13,14 @@
 
         (function initController() {
             // reset login status
-            AuthenticationService.ClearCredentials();
+            AuthenticationService.clearCredentials();
         })();
 
         function login() {
             vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
+            AuthenticationService.login(vm.username, vm.password, function (response) {
                 if (Object.keys(response.data).length) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password, response.data.first_name, response.data.last_name);
+                    AuthenticationService.setCredentials(vm.username, vm.password, response.data.first_name, response.data.last_name);
                     $location.path('/');
                 } else {
                     FlashService.Error("Wrong credential ...");

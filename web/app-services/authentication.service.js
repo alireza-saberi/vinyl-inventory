@@ -9,13 +9,13 @@
     function AuthenticationService($http, $cookies, $rootScope, $timeout, UserService) {
         var service = {};
 
-        service.Login = Login;
-        service.SetCredentials = SetCredentials;
-        service.ClearCredentials = ClearCredentials;
+        service.login = login;
+        service.setCredentials = setCredentials;
+        service.clearCredentials = clearCredentials;
 
         return service;
 
-        function Login(username, password, callback) {
+        function login(username, password, callback) {
 
             /* Use this for real authentication
              ----------------------------------------------*/
@@ -26,7 +26,7 @@
 
         }
 
-        function SetCredentials(username, password, firstname, lastname) {
+        function setCredentials(username, password, firstname, lastname) {
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
@@ -48,7 +48,7 @@
             $cookies.putObject('globals', $rootScope.globals, {expires: cookieExp});
         }
 
-        function ClearCredentials() {
+        function clearCredentials() {
             $rootScope.globals = {};
             $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';

@@ -16,7 +16,7 @@
         function register() {
             vm.dataLoading = true;
             console.log("user is %o", vm.user);
-            UserService.Create(vm.user)
+            UserService.create(vm.user)
                     .then(function (response) {
                         console.log(response);
                         if (response) {
