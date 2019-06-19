@@ -27,6 +27,7 @@ import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
+ * handles album related CRUD requests
  *
  * @author alans
  */

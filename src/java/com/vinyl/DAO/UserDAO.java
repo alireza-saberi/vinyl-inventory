@@ -6,9 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
+/** 
  *
  * @author alans
+ * Data Access Object that handle user basic needs
  */
 public class UserDAO {
 
@@ -18,7 +19,11 @@ public class UserDAO {
     Connection connection = null;
     int rowsAffected;
 
-    // adding a user
+    /** Method: add a new user to the SQL
+     * 
+     * @param user an object that has all information 
+     * @return integer value of effected row in SQL table
+     */
     public int addUser(Users user) {
 
         try {
@@ -42,7 +47,11 @@ public class UserDAO {
         return rowsAffected;
     }
 
-    // in case we want to drop a user
+    /** Method: drop/delete a new user to the SQL
+     * 
+     * @param user an object that has all information 
+     * @return integer value of effected row in SQL table
+     */
     public int deleteUser(Users user) {
         try {
             obj_DB_Connection = new DBConnector();
@@ -64,6 +73,11 @@ public class UserDAO {
     }
 
     // only changing name, and family name with this methiod
+    /** Method: update a user inside the SQL
+     * 
+     * @param user an object that has all information 
+     * @return integer value of effected row in SQL table
+     */
     public int updateUser(Users user) {
         try {
             obj_DB_Connection = new DBConnector();
@@ -87,6 +101,13 @@ public class UserDAO {
     }
 
     // check if the user exist
+    /** Method: checks if the user already exists inside database
+     * 
+     * @param user an object that has all information 
+     * @return boolean value of true/false regarding to validation of the a user
+     * a user is valid if (s)he doesnt exist inside database
+     * a user is invalid if (s)he exist inside database
+     */
     public boolean isUserValid(Users user) {
         try {
             obj_DB_Connection = new DBConnector();
@@ -110,7 +131,12 @@ public class UserDAO {
         return false;
 
     }
-
+    
+    /** Method: reads a user if it exist inside the SQL database
+     * 
+     * @param user an object that has user pass information
+     * @return user information if it exists inside the database
+     */
     public Users readUser(Users user) {
         Users loggedUser = new Users();
         try {

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 /**
  *
  * @author alans
+ * Data Access Object class for the Album
  */
 public class AlbumDAO {
 
@@ -21,7 +22,11 @@ public class AlbumDAO {
     Connection connection = null;
     int rowsAffected;
 
-    // add album for a specific user
+    /** Method: add album for a specific user
+     * 
+     * @param album, albums has username in it
+     * @return integer value of effected row in SQL table
+     */
     public int addAlbum(Album album) {
 
         try {
@@ -50,7 +55,11 @@ public class AlbumDAO {
         return rowsAffected;
     }
 
-    // read albums for specific user
+    /** Method: read all albums of logged-in specific user 
+    * 
+    * @param user: the user who is already logged-in
+    * @return ArrayList of albums for the logged-in user  
+    **/
     public ArrayList<Album> readAlbums(Users user) {
         ArrayList<Album> albums = new ArrayList<>();
         Album album;
@@ -89,7 +98,11 @@ public class AlbumDAO {
 
     }
 
-    // update album for a specific user
+    /** Method: update album for of logged-in specific user 
+    *
+    * @param album : is the album to be modified, album has logged in username information in it
+    * @return integer of the affected row in SQL statement
+    **/
     public int updateAlbum(Album album) {
         try {
             obj_DB_Connection = new DBConnector();
@@ -118,7 +131,11 @@ public class AlbumDAO {
         return rowsAffected;
     }
 
-    // delete album for a specific user
+    /** Method: delete album for of logged-in specific user 
+    *
+    * @param album : is the album to be modified, album has logged in username information in it
+    * @return integer of the affected row in SQL statement
+    **/    
     public int deleteAlbum(Album album) {
         try {
             obj_DB_Connection = new DBConnector();
@@ -150,7 +167,11 @@ public class AlbumDAO {
         return rowsAffected;
     }
 
-    // delete album for a specific user
+    /** Method: delete all albums for of logged-in specific user 
+    *
+    * @param user is the user who is the owner of the set of albums
+    * @return integer of the affected row in SQL statement
+    **/ 
     public int deleteAllAlbum(Users user) {
         try {
             obj_DB_Connection = new DBConnector();
@@ -173,6 +194,12 @@ public class AlbumDAO {
 
     }
 
+    /** Method: check if album exists for of logged-in specific user 
+     * a repeative album is not allowed to be added.
+    *
+    * @param album 
+    * @return boolean 
+    **/ 
     public boolean albumExists(Album album) {
 
         try {

@@ -8,15 +8,18 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
-/**
+/** Class DBConnector that provides connection with SQL
  *
  * @author alans
  */
 public class DBConnector {
 
     Connection connection = null;
-//    private Connection dbConnection
 
+    /** Method: makes connection to the SQL
+     * 
+     * @return connection object
+     */
     public Connection getConnection() {
 
         Properties conf = new Properties();
@@ -32,7 +35,9 @@ public class DBConnector {
         }
         return connection;
     }
-
+    /** Method: closes connection to the SQL
+     * 
+     */
     public void closeConnection(DBConnector myConn, PreparedStatement myStmt) {
 
         try {
@@ -48,6 +53,11 @@ public class DBConnector {
         }
     }
 
+    /** Method: execute SQL query
+     * 
+     * @param query that is run as SQL query
+     * @return effected row in SQL
+     */
     public int executeQuery(String query) throws ClassNotFoundException, SQLException {
         return connection.createStatement().executeUpdate(query);
     }
